@@ -1,0 +1,10 @@
+{
+  "name": "io-link",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "yarn@3.5.0"
+}
