@@ -83,7 +83,7 @@ export const createApp = (
         payload,
       });
       // The UNIVERSAL LINK should have https scheme
-      const link = buildLink(`https://${req.get("host")}`, payload);
+      const link = buildLink(`https://${req.get("x-forwarded-host")}`, payload);
       req.log?.("debug", "link created", {
         link,
       });
@@ -109,7 +109,7 @@ export const createApp = (
       req.log?.("debug", "parsed payload", {
         payload,
       });
-      const link = buildLink(`https://${req.get("host")}`, payload);
+      const link = buildLink(`https://${req.get("x-forwarded-host")}`, payload);
       req.log?.("debug", "link created", {
         link,
       });
