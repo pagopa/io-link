@@ -96,7 +96,7 @@ describe("/qrcode.png", () => {
   it<AppTestContext>("should return a 200 with a QRCODE image in png when payload is valid", async (ctx) => {
     const res = await supertest(ctx.app)
       .get(`${ctx.endpoint}?feat=firma&srid=SIGNATUREID`)
-      .set("Host", "localhost:1407")
+      .set("X-Forwarded-Host", "localhost:1407")
       .expect(200);
     expect(res.headers["content-type"]).toContain("image/png");
     // Since this is a test executed in an async context, we have to use "expect" from the context
@@ -117,7 +117,7 @@ describe("/open", () => {
   it<AppTestContext>("should redirect to link when payload is valid", async (ctx) => {
     await supertest(ctx.app)
       .get(`${ctx.endpoint}?feat=firma&srid=SIGNATUREID`)
-      .set("Host", "localhost:1407")
+      .set("X-Forwarded-Host", "localhost:1407")
       .expect(302)
       .expect(
         "Location",
