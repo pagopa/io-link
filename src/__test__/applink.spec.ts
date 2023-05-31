@@ -4,7 +4,7 @@ import { getPathFromPayload, buildLink } from "../applink";
 
 const payloads = [
   ["fci", { feat: "firma" as const, srid: "AAA" }, "/fci/main?signatureRequestId=AAA"],
-  ["idpay", { feat: "idpay" as const, trxcode: "AAA" }, "/idpay/auth?trxCode=AAA"]
+  ["idpay", { feat: "idpay" as const, trxcode: "AAA" }, "/idpay/auth/AAA"]
 ] as const;
 
 const payload = { feat: "firma" as const, srid: "AAA" };

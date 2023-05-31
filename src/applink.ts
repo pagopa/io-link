@@ -15,7 +15,7 @@ export const getPathFromPayload = (p: BuildLinkPayload): string => {
     case "firma":
       return `/fci/main?signatureRequestId=${p.srid}`;
     case "idpay":
-      return `/idpay/auth?trxCode=${p.trxcode}`;
+      return `/idpay/auth/${p.trxcode}`;
   }
 };
 
