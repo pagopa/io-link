@@ -11,7 +11,7 @@ const payload = { feat: "firma" as const, srid: "AAA" };
 const mocks = { payload };
 
 describe("getPathFromPayload", () => {
-  it.each(payloads)("gets the correct path for feat %s", (feat, p, expected) => {
+  it.each(payloads)("gets the correct path for feat %s", (_, p, expected) => {
     const result = getPathFromPayload(p);
     expect(result).toBe(expected);
   });
