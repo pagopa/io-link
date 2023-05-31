@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const BuildLinkPayload = z.discriminatedUnion("feat", [
   z.object({ feat: z.literal("firma"), srid: z.string().nonempty() }),
+  z.object({ feat: z.literal("idpay"), trxcode: z.string().nonempty() }),
 ]);
 
 type BuildLinkPayload = z.infer<typeof BuildLinkPayload>;
@@ -13,6 +14,8 @@ export const getPathFromPayload = (p: BuildLinkPayload): string => {
   switch (p.feat) {
     case "firma":
       return `/fci/main?signatureRequestId=${p.srid}`;
+    case "idpay":
+      return `/idpay/auth?trxCode=${p.trxcode}`;
   }
 };
 
