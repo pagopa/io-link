@@ -1,7 +1,7 @@
 {
   "name": "io-link",
   "version": "1.0.0",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "private": true,
   "scripts": {
     "test": "vitest --run",
