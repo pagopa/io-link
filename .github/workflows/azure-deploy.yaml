@@ -54,6 +54,7 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          slot-name: staging
 
   create_runner:
     name: Create Runner
