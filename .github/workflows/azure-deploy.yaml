@@ -35,7 +35,6 @@ jobs:
       # Build App
       - name: "Build"
         run: |
-          yarn install
           yarn build
         working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
