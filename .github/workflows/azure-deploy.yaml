@@ -13,7 +13,7 @@ env:
   RESOURCE_GROUP: io-p-continua-rg
   NODE_VERSION: 18.15.0
   AZURE_WEBAPP_NAME: io-p-app-continua
-  AZURE_WEBAPP_PACKAGE_PATH: /
+  AZURE_WEBAPP_PACKAGE_PATH: dist
   HEALTHCHECK_PATH: /health
 
 jobs:
@@ -35,8 +35,8 @@ jobs:
       # Build App
       - name: "Build"
         run: |
+          yarn install
           yarn build
-        working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
       # Login to azure
       - name: AZ Login

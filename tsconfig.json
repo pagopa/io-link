@@ -10,6 +10,6 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "rootDir": "src",
-    "outDir": "lib"
+    "outDir": "dist"
   }
 }
