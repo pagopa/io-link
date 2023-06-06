@@ -41,7 +41,11 @@ export const createApp = (
 ): express.Application => {
   const app = express();
 
-  app.use(helmet());
+  app.use(
+    helmet({
+      crossOriginResourcePolicy: { policy: "cross-origin" },
+    })
+  );
   app.disable("x-powered-by");
   app.use(express.static("public"));
   app.use(LE.logger(logger));
