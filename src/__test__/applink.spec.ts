@@ -2,13 +2,18 @@ import { describe, it, expect } from "vitest";
 
 import { getPathFromPayload, buildLink } from "../applink";
 
+const payloads = [
+  ["fci", { feat: "firma" as const, srid: "AAA" }, "/fci/main?signatureRequestId=AAA"],
+  ["idpay", { feat: "idpay" as const, trxcode: "AAA" }, "/idpay/auth/AAA"]
+] as const;
+
 const payload = { feat: "firma" as const, srid: "AAA" };
 const mocks = { payload };
 
 describe("getPathFromPayload", () => {
-  it("gets the correct path of io-sign", () => {
-    const result = getPathFromPayload(mocks.payload);
-    expect(result).toBe("/fci/main?signatureRequestId=AAA");
+  it.each(payloads)("gets the correct path for feat %s", (_, p, expected) => {
+    const result = getPathFromPayload(p);
+    expect(result).toBe(expected);
   });
 });
 
