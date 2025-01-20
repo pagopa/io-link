@@ -28,7 +28,7 @@ jobs:
 
       # Setup Node
       - name: Setup Node ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
         with:
           node-version-file: ".nvmrc"
 
@@ -42,7 +42,7 @@ jobs:
       # Login to azure
       - name: AZ Login
         id: login
-        uses: azure/login@v1
+        uses: azure/login@cb79c773a3cfa27f31f25eb3f677781210c9ce3d # v1
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -51,7 +51,7 @@ jobs:
       # deploy web app to staging using Azure credentials
       - name: "Deploy to staging"
         id: staging
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@4bfb30bef2c330e36be280cb1e5726d0fac06233 # v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
