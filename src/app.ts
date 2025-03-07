@@ -1,32 +1,27 @@
-import { PassThrough } from "node:stream";
+import * as L from "@pagopa/logger";
+import * as LE from "@pagopa/logger-express";
+import cors from "cors";
 import express, { Request } from "express";
 import helmet from "helmet";
-import cors from "cors";
-
-import { z, ZodError } from "zod";
-
+import { PassThrough } from "node:stream";
 import qrcode from "qrcode";
-
-import * as LE from "@pagopa/logger-express";
-import * as L from "@pagopa/logger";
+import { ZodError, z } from "zod";
 
 import {
   BuildLinkPayload,
-  buildLink,
   appleAppSiteAssociation,
   assetLinks,
+  buildLink
 } from "./applink";
-
-import { getUrlFromUserAgent } from "./redirect";
-
 import { Config } from "./config";
+import { getUrlFromUserAgent } from "./redirect";
 
 const logError = (err: unknown, req: Request) => {
   /* c8 ignore start */
   if (err instanceof ZodError) {
     err.issues.forEach((issue) => {
       req.log?.("error", "invalid input", {
-        issue,
+        issue
       });
     });
   } else if (err instanceof Error) {
@@ -43,7 +38,7 @@ export const createApp = (
 
   app.use(
     helmet({
-      crossOriginResourcePolicy: { policy: "cross-origin" },
+      crossOriginResourcePolicy: { policy: "cross-origin" }
     })
   );
   app.disable("x-powered-by");
@@ -78,18 +73,18 @@ export const createApp = (
       BuildLinkPayload,
       z.object({
         width: z.coerce.number().min(100).max(500).default(250),
-        color: z.string().length(9).regex(/^#/).default("#000000ff"),
+        color: z.string().length(9).regex(/^#/).default("#000000ff")
       })
     );
     try {
       const payload = Payload.parse(req.query);
       req.log?.("debug", "parsed payload", {
-        payload,
+        payload
       });
       // The UNIVERSAL LINK should have https scheme
       const link = buildLink(`https://${req.get("x-forwarded-host")}`, payload);
       req.log?.("debug", "link created", {
-        link,
+        link
       });
       res.setHeader("Content-Type", "image/png");
       req.log?.("debug", "generating qr code");
@@ -97,8 +92,8 @@ export const createApp = (
       await qrcode.toFileStream(qrCodeStream, link, {
         width: payload.width,
         color: {
-          dark: payload.color,
-        },
+          dark: payload.color
+        }
       });
       qrCodeStream.pipe(res);
     } catch (err) {
@@ -111,11 +106,11 @@ export const createApp = (
     try {
       const payload = BuildLinkPayload.parse(req.query);
       req.log?.("debug", "parsed payload", {
-        payload,
+        payload
       });
       const link = buildLink(`https://${req.get("x-forwarded-host")}`, payload);
       req.log?.("debug", "link created", {
-        link,
+        link
       });
       res.redirect(link);
     } catch (err) {

@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 
 import * as L from "@pagopa/logger";
+
 import { Config } from "./config";
 
 export const createLogger = (env: Config["environment"]): L.Logger => ({
@@ -14,5 +15,5 @@ export const createLogger = (env: Config["environment"]): L.Logger => ({
       console.log(s);
     }
   },
-  format: env === "development" ? L.format.simple : L.format.json,
+  format: env === "development" ? L.format.simple : L.format.json
 });

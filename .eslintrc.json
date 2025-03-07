@@ -1,8 +1,0 @@
-{
-  "env": {
-    "es2022": true,
-    "node": true
-  },
-  "extends": ["@pagopa/eslint-config/recommended"],
-  "ignorePatterns": ["*.yaml", "**/*.spec.ts", "**/*.snap"]
-}

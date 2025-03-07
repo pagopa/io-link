@@ -1,11 +1,9 @@
+import * as L from "@pagopa/logger";
 import { ZodError } from "zod";
 
-import * as L from "@pagopa/logger";
-
-import { createLogger } from "./logger";
-import { parseConfigFromEnvironment } from "./config";
-
 import { createApp } from "./app";
+import { parseConfigFromEnvironment } from "./config";
+import { createLogger } from "./logger";
 
 // Create a logger based on environment
 // The env is not read from config because that operation can fails
@@ -24,19 +22,19 @@ try {
   const app = createApp(config, logger);
   app.listen(config.port, "0.0.0.0", () => {
     log("info", "service started", {
-      port: config.port,
+      port: config.port
     });
   });
 } catch (err) {
   if (err instanceof ZodError) {
     err.issues.forEach((issue) => {
       log("error", "invalid config", {
-        issue,
+        issue
       });
     });
   } else if (err instanceof Error) {
     log("error", err.message, {
-      cause: err.cause,
+      cause: err.cause
     });
   }
   process.exit(1);
