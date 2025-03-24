@@ -15,6 +15,7 @@ import {
 } from "./applink";
 import { Config } from "./config";
 import { getUrlFromUserAgent } from "./redirect";
+import { maybeStoreCampagn, parseStoreCampaignFromRequest } from "./campaign";
 
 const logError = (err: unknown, req: Request) => {
   /* c8 ignore start */
@@ -121,7 +122,7 @@ export const createApp = (
 
   app.all("*", (req, res) => {
     const ua = req.header("user-agent") ?? "";
-    const url = getUrlFromUserAgent(ua)(c.fallback);
+    const url = getUrlFromUserAgent(ua)(c.fallback, maybeStoreCampagn(req));
     req.log?.("debug", `redirecting to ${url}`);
     res.redirect(url);
   });
