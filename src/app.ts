@@ -13,9 +13,9 @@ import {
   assetLinks,
   buildLink
 } from "./applink";
+import { maybeStoreCampagn } from "./campaign";
 import { Config } from "./config";
 import { getUrlFromUserAgent } from "./redirect";
-import { maybeStoreCampagn, parseStoreCampaignFromRequest } from "./campaign";
 
 const logError = (err: unknown, req: Request) => {
   /* c8 ignore start */

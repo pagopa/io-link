@@ -13,11 +13,6 @@ const getPlatformFromUserAgent = (ua: string): Platform | undefined => {
   return undefined;
 };
 
-enum Store {
-  Android = "android",
-  IOS = "ios"
-}
-
 /**
  * Add store campaign query parameters to the URL
  * @param url URL

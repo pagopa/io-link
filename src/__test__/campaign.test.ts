@@ -1,6 +1,7 @@
-import { describe, it, expect } from "vitest";
-import { parseStoreCampaignFromRequest, maybeStoreCampagn } from "../campaign";
 import { Request } from "express";
+import { describe, expect, it } from "vitest";
+
+import { maybeStoreCampagn, parseStoreCampaignFromRequest } from "../campaign";
 
 describe("Campaign", () => {
   describe("parseStoreCampaignFromRequest", () => {
