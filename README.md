@@ -64,7 +64,7 @@ ANDROID_SHA_256_CERT_FINGERPRINTS=you can read these from the play console
 PORT=defaults to 3000
 NODE_ENV=defaults to production
 FALLBACK_URL_ON_IOS=overrides FALLBACK_URL when the device runs iOS
-FULLBACK_URL_ON_ANDROID=overrides FALLBACK_URL when the device runs Andrid
+FALLBACK_URL_ON_ANDROID=overrides FALLBACK_URL when the device runs Andrid
 ```
 
 ## Routes
