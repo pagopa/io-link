@@ -46,7 +46,7 @@ describe("Campaign", () => {
     });
   });
 
-  describe("maybeStoreCampagn", () => {
+  describe("maybeStoreCampaign", () => {
     it("should return campaign if valid", () => {
       const mockReq = {
         query: {
