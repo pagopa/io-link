@@ -100,23 +100,22 @@ describe("getUrlFromUserAgent with store campaigns params", () => {
 
   it("should return default URL when platform-specific URL is not provided", () => {
     const getUrl = getUrlFromUserAgent(defaultTestTable[0].ua);
-    const result = getUrl({ default: "https://default.com" });
-    expect(result).toBe("https://default.com");
+    const result = getUrl(mockConfig, mockStoreCampaign);
+    expect(result).toBe(mockConfig.default);
   });
 
   it("should append store campaign parameters for Android", () => {
     const getUrl = getUrlFromUserAgent(androidTestTable[0].ua);
     const result = getUrl(mockConfig, mockStoreCampaign);
     expect(result).toBe(
-      "https://play.google.com/store/apps?utm_source=android_source&utm_medium=android_medium&utm_campaign=android_campaign"
+      mockConfig.onAndroid +
+        "?utm_source=android_source&utm_medium=android_medium&utm_campaign=android_campaign"
     );
   });
 
   it("should append store campaign parameters for iOS", () => {
     const getUrl = getUrlFromUserAgent(iosTestTable[0].ua);
     const result = getUrl(mockConfig, mockStoreCampaign);
-    expect(result).toBe(
-      "https://apps.apple.com/app?ct=ios_ct&mt=ios_mt&pt=ios_pt"
-    );
+    expect(result).toBe(mockConfig.onIOS + "?ct=ios_ct&mt=ios_mt&pt=ios_pt");
   });
 });
