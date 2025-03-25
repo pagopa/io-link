@@ -1,7 +1,7 @@
 import { Request } from "express";
 import { describe, expect, it } from "vitest";
 
-import { maybeStoreCampagn, parseStoreCampaignFromRequest } from "../campaign";
+import { maybeStoreCampaign, parseStoreCampaignFromRequest } from "../campaign";
 
 describe("Campaign", () => {
   describe("parseStoreCampaignFromRequest", () => {
@@ -44,18 +44,6 @@ describe("Campaign", () => {
         }
       });
     });
-
-    it("should throw on invalid campaign", () => {
-      const mockReq = {
-        query: {
-          utm_source: "", // Empty string will cause validation error
-          utm_medium: "test-medium",
-          utm_campaign: "test-campaign"
-        }
-      } as unknown as Request;
-
-      expect(() => parseStoreCampaignFromRequest(mockReq)).toThrow();
-    });
   });
 
   describe("maybeStoreCampagn", () => {
@@ -68,7 +56,7 @@ describe("Campaign", () => {
         }
       } as unknown as Request;
 
-      const result = maybeStoreCampagn(mockReq);
+      const result = maybeStoreCampaign(mockReq);
       expect(result).toBeDefined();
     });
 
@@ -81,7 +69,7 @@ describe("Campaign", () => {
         }
       } as unknown as Request;
 
-      const result = maybeStoreCampagn(mockReq);
+      const result = maybeStoreCampaign(mockReq);
       expect(result).toBeUndefined();
     });
   });

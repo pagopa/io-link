@@ -13,7 +13,7 @@ import {
   assetLinks,
   buildLink
 } from "./applink";
-import { maybeStoreCampagn } from "./campaign";
+import { maybeStoreCampaign } from "./campaign";
 import { Config } from "./config";
 import { getUrlFromUserAgent } from "./redirect";
 
@@ -122,7 +122,7 @@ export const createApp = (
 
   app.all("*", (req, res) => {
     const ua = req.header("user-agent") ?? "";
-    const url = getUrlFromUserAgent(ua)(c.fallback, maybeStoreCampagn(req));
+    const url = getUrlFromUserAgent(ua)(c.fallback, maybeStoreCampaign(req));
     req.log?.("debug", `redirecting to ${url}`);
     res.redirect(url);
   });

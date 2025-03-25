@@ -1,4 +1,4 @@
-import { StoreCampaign } from "./campaign";
+import { AndroidCampaign, IosCampaign, StoreCampaign } from "./campaign";
 import { Config } from "./config";
 
 type Platform = "ios" | "android";
@@ -19,9 +19,9 @@ const getPlatformFromUserAgent = (ua: string): Platform | undefined => {
  * @param storeCampaign Store campaign
  * @returns URL with store campaign
  */
-const addStoreCampaignToUrl = (
+const appendStoreCampaignParamsToUrl = (
   url: string,
-  storeCampaign?: StoreCampaign["ios"] | StoreCampaign["android"]
+  storeCampaign?: IosCampaign | AndroidCampaign
 ) => {
   if (!storeCampaign) {
     return url;
@@ -31,9 +31,7 @@ const addStoreCampaignToUrl = (
     if (Object.prototype.hasOwnProperty.call(storeCampaign, key)) {
       urlWithParams.searchParams.append(
         key,
-        storeCampaign[
-          key as keyof StoreCampaign["ios"] | keyof StoreCampaign["android"]
-        ]
+        storeCampaign[key as keyof typeof storeCampaign]
       );
     }
   }
@@ -53,11 +51,14 @@ export const getUrlFromUserAgent =
       switch (platform) {
         case "android":
           return url.onAndroid
-            ? addStoreCampaignToUrl(url.onAndroid, storeCampaign?.["android"])
+            ? appendStoreCampaignParamsToUrl(
+                url.onAndroid,
+                storeCampaign?.android
+              )
             : url.default;
         case "ios":
           return url.onIOS
-            ? addStoreCampaignToUrl(url.onIOS, storeCampaign?.["ios"])
+            ? appendStoreCampaignParamsToUrl(url.onIOS, storeCampaign?.ios)
             : url.default;
       }
     }
