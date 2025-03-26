@@ -1,5 +1,11 @@
 # io-link
 
+## 1.1.0
+
+### Minor Changes
+
+- 37a7dd7: Store redirect link handle campaign traking parameters
+
 ## 1.0.1
 
 ### Patch Changes
