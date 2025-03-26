@@ -1,9 +1,13 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
-import { getPathFromPayload, buildLink } from "../applink";
+import { buildLink, getPathFromPayload } from "../applink";
 
 const payloads = [
-  ["fci", { feat: "firma" as const, srid: "AAA" }, "/fci/main?signatureRequestId=AAA"],
+  [
+    "fci",
+    { feat: "firma" as const, srid: "AAA" },
+    "/fci/main?signatureRequestId=AAA"
+  ],
   ["idpay", { feat: "idpay" as const, trxcode: "AAA" }, "/idpay/auth/AAA"]
 ] as const;
 

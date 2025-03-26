@@ -13,17 +13,11 @@ export default [
       "perfectionist/sort-object-types": "off",
       "perfectionist/sort-union-types": "off",
       "@typescript-eslint/array-type": ["error", { default: "generic" }],
-      "@typescript-eslint/no-inferrable-types": "off"
+      "@typescript-eslint/no-inferrable-types": "off",
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"]
     }
   },
   {
-    ignores: [
-      "node_modules",
-      "dist",
-      ".yarn",
-      "*.yaml",
-      "**/*.spec.ts",
-      "**/*.snap"
-    ]
+    ignores: ["node_modules", "dist", ".yarn", "*.yaml", "**/*.snap"]
   }
 ];
