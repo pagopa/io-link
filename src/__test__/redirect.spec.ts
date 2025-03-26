@@ -1,7 +1,8 @@
-import { describe, it, expect } from "vitest";
-import { getUrlFromUserAgent } from "../redirect";
-import { Config } from "../config";
+import { describe, expect, it } from "vitest";
+
 import { StoreCampaign } from "../campaign";
+import { Config } from "../config";
+import { getUrlFromUserAgent } from "../redirect";
 
 const urls: Config["fallback"] = {
   onAndroid: "PLAY_STORE",

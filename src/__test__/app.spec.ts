@@ -1,13 +1,11 @@
-import { describe, it, expect, beforeEach } from "vitest";
-import supertest from "supertest";
-
-import express from "express";
-
 import * as L from "@pagopa/logger";
+import express from "express";
+import supertest from "supertest";
+import { beforeEach, describe, expect, it } from "vitest";
 
 import { createApp } from "../app";
-import { Config } from "../config";
 import { appleAppSiteAssociation, assetLinks } from "../applink";
+import { Config } from "../config";
 
 type AppTestContext = {
   app: express.Application;
@@ -19,21 +17,21 @@ const config: Config = {
   port: 3000,
   ios: {
     appId: "IOS_APP_ID",
-    bundleId: "it.pagopa.io.continua.test",
+    bundleId: "it.pagopa.io.continua.test"
   },
   android: {
     packageName: "ANDROID_PACKAGE_NAME",
-    sha256CertFingerprints: ["AAA1", "AAA2"],
+    sha256CertFingerprints: ["AAA1", "AAA2"]
   },
   fallback: {
     onAndroid: "PLAYSTORE_URL",
     onIOS: "APPSTORE_URL",
-    default: "FALLBACK_URL",
-  },
+    default: "FALLBACK_URL"
+  }
 };
 
 const logger: L.Logger = {
-  log: () => () => {},
+  log: () => () => undefined
 };
 
 const mocks = { config, logger };
