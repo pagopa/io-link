@@ -27,14 +27,8 @@ const appendStoreCampaignParamsToUrl = (
     return url;
   }
   const urlWithParams = new URL(url);
-  for (const key in storeCampaign) {
-    if (Object.prototype.hasOwnProperty.call(storeCampaign, key)) {
-      urlWithParams.searchParams.append(
-        key,
-        storeCampaign[key as keyof typeof storeCampaign]
-      );
-    }
-  }
+  const params = new URLSearchParams(storeCampaign);
+  urlWithParams.search = params.toString();
   return urlWithParams.toString();
 };
 
