@@ -27,8 +27,12 @@ const appendStoreCampaignParamsToUrl = (
     return url;
   }
   const urlWithParams = new URL(url);
-  const params = new URLSearchParams(storeCampaign);
-  urlWithParams.search = params.toString();
+  const existingParams = new URLSearchParams(urlWithParams.search);
+  const newParams = new URLSearchParams(storeCampaign);
+  newParams.forEach((value, key) => {
+    existingParams.append(key, value);
+  });
+  urlWithParams.search = existingParams.toString();
   return urlWithParams.toString();
 };
 
