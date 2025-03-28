@@ -1,5 +1,11 @@
 # io-link
 
+## 1.1.1
+
+### Patch Changes
+
+- Fix Android url redirect with app ID
+
 ## 1.1.0
 
 ### Minor Changes
