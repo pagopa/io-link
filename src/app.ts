@@ -120,6 +120,19 @@ export const createApp = (
     }
   });
 
+  app.all("/main/wallet", (req, res) => {
+    // Redirect to /main/messages for temporary fix of the wallet external link issue
+    req.log?.("debug", "redirecting to /main/messages as temporary wallet fix");
+    res.redirect(
+      `${req.protocol}://${req.get("Host")}/main/messages${
+        req.query
+          ? "?" +
+            new URLSearchParams(req.query as Record<string, string>).toString()
+          : ""
+      }`
+    );
+  });
+
   app.all("*", (req, res) => {
     const ua = req.header("user-agent") ?? "";
     const url = getUrlFromUserAgent(ua)(c.fallback, maybeStoreCampaign(req));
