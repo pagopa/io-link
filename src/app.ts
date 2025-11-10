@@ -126,7 +126,7 @@ export const createApp = (
     const queryString = new URLSearchParams(
       req.query as Record<string, string>
     ).toString();
-    const host = req.get("x-forwarded-host") || req.get("Host");
+    const host = req.get("X-Original-Host") || req.get("Host");
     res.redirect(
       `${req.protocol}://${host}/main/messages${
         queryString ? "?" + queryString : ""
