@@ -3,7 +3,7 @@ locals {
   env_short       = "p"
   location        = "italynorth"
   domain          = "plt"
-  instance_number = "02"
+  instance_number = "03"
   project         = "${local.prefix}-${local.env_short}-itn"
 
   adgroups = {
