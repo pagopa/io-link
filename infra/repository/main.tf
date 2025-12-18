@@ -1,4 +1,4 @@
-module "github_environment_bootstrap" {
+module "github_repository" {
   source  = "pagopa-dx/github-environment-bootstrap/github"
   version = "~> 1.1"
 
