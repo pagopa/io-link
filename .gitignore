@@ -14,3 +14,11 @@ node_modules/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# terraform
+**/.tfsec/*
+**/.terraform/*
+*.tfstate
+override.tf
+override.tf.json
+**/_modules/**/.terraform.lock.hcl

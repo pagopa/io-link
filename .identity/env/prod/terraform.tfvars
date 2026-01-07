@@ -4,7 +4,7 @@ prefix    = "io"
 
 environment_cd_roles = {
   subscription = [
-   
+
   ]
   resource_groups = {
     io-p-continua-rg = [
