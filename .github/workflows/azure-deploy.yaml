@@ -20,6 +20,6 @@ jobs:
     secrets: inherit
     with:
       workspace_name: io-link
-      environment: prod-cd
+      environment: app-prod
       resource_group_name: io-p-itn-continua-rg-01
       web_app_name: io-p-itn-continua-app-01
