@@ -13,12 +13,9 @@
   },
   "exclude": [
     "node_modules",
-    "Dangerfile.ts",
     "dist",
     "**/__tests__",
     "__mocks__/**",
-    "__integrations__/**",
-    "docker/**",
     "vite.config.mts"
   ]
 }
