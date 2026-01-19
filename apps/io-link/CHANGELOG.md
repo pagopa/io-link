@@ -1,5 +1,11 @@
 # io-link
 
+## 2.0.0
+
+### Major Changes
+
+- af4abee: monorepo refactory
+
 ## 1.1.1
 
 ### Patch Changes
