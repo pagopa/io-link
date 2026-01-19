@@ -83,7 +83,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:^2.26.1":
+"@changesets/cli@npm:^2.26.1, @changesets/cli@npm:^2.29.8":
   version: 2.29.8
   resolution: "@changesets/cli@npm:2.29.8"
   dependencies:
@@ -3566,6 +3566,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "io-link-repo@workspace:."
   dependencies:
+    "@changesets/cli": "npm:^2.29.8"
     turbo: "npm:^2.0.7"
   languageName: unknown
   linkType: soft
