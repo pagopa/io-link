@@ -7,11 +7,7 @@ on:
       - main
     paths:
       - "apps/io-link/CHANGELOG.md"
-
-permissions:
-  attestations: write
-  id-token: write
-  contents: read
+      - ".github/workflows/azure-deploy.yaml"
 
 jobs:
   deploy:
@@ -20,6 +16,10 @@ jobs:
     secrets: inherit
     with:
       workspace_name: io-link
-      environment: prod-cd
+      environment: app-prod
       resource_group_name: io-p-itn-continua-rg-01
       web_app_name: io-p-itn-continua-app-01
+    permissions:
+      attestations: write
+      id-token: write
+      contents: read
