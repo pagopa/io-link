@@ -65,6 +65,7 @@ export const maybeStoreCampaign = (
 ): StoreCampaign | undefined => {
   try {
     return parseStoreCampaignFromRequest(req);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (err) {
     return undefined;
   }
