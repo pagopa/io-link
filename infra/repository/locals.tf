@@ -11,8 +11,9 @@ locals {
     app_cd_policy_branches   = ["main"]
 
     reviewers_teams = [
-      "io-platform-admin",
-      "engineering-team-cloud-eng"
+      "io-platform-admins",
+      "io-platform-contributors",
+      "engineering-team-devex"
     ]
   }
 }

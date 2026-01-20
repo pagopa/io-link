@@ -1,3 +1,4 @@
 # see https://help.github.com/en/articles/about-code-owners#example-of-a-codeowners-file
 
-* @pagopa/engineering-team-devex @pagopa/io-platform-contributors
+* @pagopa/io-platform-contributors @pagopa/io-platform-admins
+infra/* @pagopa/engineering-team-devex @pagopa/io-platform-admins @pagopa/io-platform-contributors
