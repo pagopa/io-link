@@ -887,12 +887,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.17.0":
-  version: 20.19.27
-  resolution: "@types/node@npm:20.19.27"
+"@types/node@npm:^22.19.11":
+  version: 22.19.15
+  resolution: "@types/node@npm:22.19.15"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/7599c24d80465c1aa6e29b53581fc20ad8862ff33e6eef31d05c1c706868476ee57319c89b802ea972dd4d64ce86d18020aa5344f851fb59b730ea509a63300f
+  checksum: 10c0/f17eaf3d0d1da5e93ad9e287efb78201f8a5282973c004c5f70d91675c5c6b926a23acaa7b158a42b3d7e27e36b349d65a531710c91c308fca53dd7fa280ef98
   languageName: node
   linkType: hard
 
@@ -3582,7 +3582,7 @@ __metadata:
     "@pagopa/typescript-config-node": "npm:*"
     "@types/cors": "npm:^2.8.13"
     "@types/express": "npm:^4.17.17"
-    "@types/node": "npm:^20.17.0"
+    "@types/node": "npm:^22.19.11"
     "@types/qrcode": "npm:^1.5.0"
     "@types/supertest": "npm:^2.0.12"
     "@vitest/coverage-c8": "npm:^0.29.8"

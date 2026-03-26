@@ -10,8 +10,8 @@ It contains also an `endpoint` to generate QR Codes that embeds dynamic links fo
 
 In order to build `io-link` in our local machine you need
 
-- `Node.js 20`
-- `yarn 3`
+- `Node.js 22`
+- `yarn 4`
 
 The preferred way to set up the local environment is using [nodenv](https://github.com/nodenv/nodenv) to manage `Node.js` installation and `corepack` (included with `Node.js`) to manage the installation of `yarn`.
 
