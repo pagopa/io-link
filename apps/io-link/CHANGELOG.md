@@ -1,5 +1,11 @@
 # io-link
 
+## 3.0.0
+
+### Major Changes
+
+- 6db9040: Upgrade Nodejs 22.22.0
+
 ## 2.0.0
 
 ### Major Changes
