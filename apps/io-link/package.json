@@ -38,7 +38,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.0.3",
     "vite": "^4.2.1",
-    "vitest": "^0.29.8"
+    "vitest": "^4.0.0"
   },
   "dependencies": {
     "@pagopa/logger": "^1.0.1",
